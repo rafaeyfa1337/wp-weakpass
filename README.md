@@ -1,5 +1,5 @@
 # WP Weak Password
-<p>Tools ini berguna untuk melakukan mass scanning pada website yang menggunakan CMS WordPress untuk melakukan mass bruteforce menggunakan username dan password yang weak, contohnya: admin, admin123 dll<br>Untuk data username dan password sendiri didapatkan dari NordPass dari link berikut: https://nordpass.com/most-common-passwords-list/ dan beberapa adalah custom dari Author tools ini.</p>
+<p>Tools ini berguna untuk melakukan mass scanning pada website yang menggunakan CMS WordPress untuk melakukan mass bruteforce menggunakan username dan password yang weak, contohnya: admin, admin123 dll<br>Untuk data username didapat dari /wp-json/wp/v2/users dan password sendiri didapatkan dari NordPass dari link berikut: https://nordpass.com/most-common-passwords-list/ dan beberapa adalah custom dari Author tools ini.</p>
 
 <h4>Install & Run Tools</h4><pre>
 apt update && apt upgrade -y
