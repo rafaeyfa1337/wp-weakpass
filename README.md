@@ -11,5 +11,5 @@ python3 wpweak.py</pre>
 
 <p>NOTE: Untuk website list jangan gunakan http:// ataupun https:// yaa!</p>
 
-<img src="https://i.imgur.com/2Igh8AX.jpg" width="100%"></img>
+<img src="https://i.imgur.com/QsziUwJ.jpg" width="100%"></img>
 <p>Yaa gitulah, tinggal pake aja yaa ini, gaperlu di recode yaa, thx u.</p>
