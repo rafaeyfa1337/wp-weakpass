@@ -1,5 +1,5 @@
 # WP Weak Password
-<p>Tools ini berguna untuk melakukan mass scanning pada website yang menggunakan CMS WordPress untuk melakukan mass bruteforce menggunakan username dan password yang weak, contohnya: admin, admin123 dll<br>Untuk data username didapat dari /wp-json/wp/v2/users dan password sendiri didapatkan dari NordPass dari link berikut: https://nordpass.com/most-common-passwords-list/ dan beberapa adalah custom dari Author tools ini.</p>
+<p>WP Weak Password adalah tools untuk melakukan mass brute pada situs wordpress menggunakan password yang mudah ditebak (weak). Tools ini mungkin berguna untuk Kamu, oiyaa, list nya harus website list yang menggunakan wordpress semua yaa. Kamu bisa pake cms filter, banyak bertebaran toolsnya.</p>
 
 <h4>Install & Run Tools</h4><pre>
 apt update && apt upgrade -y
@@ -9,7 +9,7 @@ git clone https://github.com/rafaeyfa1337/wp-weakpass
 cd wp-weakpass
 python3 wpweak.py</pre>
 
-<p>NOTE: Untuk website list jangan gunakan http:// yaa!</p>
+<p>NOTE: Untuk website list jangan gunakan http:// ataupun https:// yaa!</p>
 
-<img src="https://i.imgur.com/TprxBmJ.jpg" width="100%"></img>
-<p>Yaa gitulah, tinggal pake aja yaa ini, gaperlu di recode yaa, thx.</p>
+<img src="https://i.imgur.com/2Igh8AX.jpg" width="100%"></img>
+<p>Yaa gitulah, tinggal pake aja yaa ini, gaperlu di recode yaa, thx u.</p>
